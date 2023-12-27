@@ -7,7 +7,7 @@ namespace :dev do
       Contact.create!(
         name: Faker::Name.name,
         email: Faker::Internet.email,
-        birthdate: Faker::Date.between(from: 65.days.ago, to: 18.days.ago)
+        birthdate: Faker::Date.between(from: 65.year.ago, to: 18.year.ago)
       )
     end
     puts 'CADASTRADOS'
