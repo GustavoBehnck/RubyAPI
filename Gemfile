@@ -40,6 +40,8 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
   gem 'faker'
 end
+#Centralization of locale data collection for Ruby on Rails.
+gem 'rails-i18n', '~> 7.0.0'
 
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
