@@ -3,7 +3,7 @@ class Contact < ApplicationRecord
     has_many :phones
     accepts_nested_attributes_for :phones, allow_destroy: true
     has_one :address
-    accepts_nested_attributes_for :address#, allow_destroy: true
+    accepts_nested_attributes_for :address, update_only: true
 
     def as_json(options={})
         h = super(
@@ -17,7 +17,7 @@ class Contact < ApplicationRecord
                         except: [:created_at, :updated_at, :contact_id]
                     },
                     address:{
-                        except: [:created_at, :updated_at, :contact_id, :id]
+                        except: [:created_at, :updated_at, :contact_id]
                     }
                 }
             )
