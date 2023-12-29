@@ -32,5 +32,16 @@ namespace :dev do
       end
     end
     puts 'CADASTRADOS'
+    ########################################################################################
+    puts 'Cadastrando ENDEREÇOS'
+    Contact.all.each do |cont|
+      addre = Address.create!(
+        street: Faker::Address.street_address,
+        city: Faker::Address.city,
+        contact: cont
+      )
+    end
+    puts 'CADASTRADOS' 
+
   end
 end
