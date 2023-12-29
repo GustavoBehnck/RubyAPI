@@ -10,7 +10,7 @@ namespace :dev do
       )
     end
     puts 'CADASTRADOS'
-
+########################################################################################
     puts 'Cadastrando contatos'
     100.times do |i|
       Contact.create!(
@@ -21,6 +21,16 @@ namespace :dev do
       )
     end
     puts 'CADASTRADOS'
+########################################################################################
+    puts 'Cadastrando TELEFONES'
+    Contact.all.each do |cont|
+      Random.rand(5).times do 
+        cont.phones.create!(
+          number:Faker::PhoneNumber.cell_phone
+        )
+        cont.save!
+      end
+    end
+    puts 'CADASTRADOS'
   end
-
 end
