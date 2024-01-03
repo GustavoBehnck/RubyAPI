@@ -13,6 +13,8 @@ gem "puma", ">= 5.0"
 
 gem 'foreman'
 
+gem 'jwt'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 

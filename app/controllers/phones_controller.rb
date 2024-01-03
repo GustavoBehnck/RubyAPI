@@ -7,7 +7,11 @@ class PhonesController < ApplicationController
 
     def destroy
         phone = Phone.find(phone_params[:id])
-        phone.destroy
+        if phone.destroy 
+            render json: { "success": "Phone Deleted" }
+        else
+            render json: { "error": "Something went wrong" }
+        end
     end
     
     def update
@@ -15,7 +19,7 @@ class PhonesController < ApplicationController
         if phone.update(phone_params)
             render json: @contact.phones
         else
-            render json @contact.errors
+            render json: @contact.errors
         end
     end
 
