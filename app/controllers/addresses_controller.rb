@@ -5,9 +5,22 @@ class AddressesController < ApplicationController
         render json: @contact.address
     end
 
+    def destroy
+        @contact.address.destroy
+    end
+    
     def update
         if @contact.address.update(address_params)
             render json: @contact.address
+        else
+            render json @contact.errors
+        end
+    end
+
+    def create
+        @contact.address = Address.new(address_params)
+        if @contact.save 
+            render json: @contact.address, status: :created, location: contact_address_url(@contact)
         else
             render json @contact.errors
         end
