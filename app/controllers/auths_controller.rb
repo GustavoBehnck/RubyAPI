@@ -1,4 +1,5 @@
 class AuthsController < ApplicationController
+    skip_before_action :authenticate
     def create
         hmac_secret = 'my$cretK3y'
         payload = { name: params[:name], exp: Time.now.to_i + 120 }

@@ -1,7 +1,5 @@
 class KindsController < ApplicationController
-  include ActionController::HttpAuthentication::Token::ControllerMethods
   before_action :set_kind, only: %i[ show update destroy ]
-  before_action :authenticate
   # GET /kinds
   def index
     @kinds = Kind.all
@@ -49,16 +47,5 @@ class KindsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def kind_params
       params.require(:kind).permit(:description)
-    end
-
-    def authenticate
-      authenticate_or_request_with_http_token do |token, options|
-        hmac_secret = 'my$cretK3y'
-        #ActiveSupport::SecurityUtils.secure_compare(
-        #  ::Digest::SHA256.hexdigest(token),
-        #  ::Digest::SHA256.hexdigest(TOKEN)
-        #)
-        JWT.decode token, hmac_secret, true, {:algorithm => 'HS256'}
-      end
     end
 end 
