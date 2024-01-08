@@ -15,6 +15,9 @@ gem 'foreman'
 
 gem 'jwt'
 
+gem 'kaminari'
+gem 'api-pagination'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
